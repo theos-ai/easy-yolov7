@@ -1,0 +1,242 @@
+classes:
+  0:
+    color: '#00ffc3'
+    name: person
+  1:
+    color: '#00ffc3'
+    name: bicycle
+  2:
+    color: '#00ffc3'
+    name: car
+  3:
+    color: '#00ffc3'
+    name: motorcycle
+  4:
+    color: '#00ffc3'
+    name: airplane
+  5:
+    color: '#00ffc3'
+    name: bus
+  6:
+    color: '#00ffc3'
+    name: train
+  7:
+    color: '#00ffc3'
+    name: truck
+  8:
+    color: '#00ffc3'
+    name: boat
+  9:
+    color: '#00ffc3'
+    name: traffic light
+  10:
+    color: '#00ffc3'
+    name: fire hydrant
+  11:
+    color: '#00ffc3'
+    name: stop sign
+  12:
+    color: '#00ffc3'
+    name: parking meter
+  13:
+    color: '#00ffc3'
+    name: bench
+  14:
+    color: '#00ffc3'
+    name: bird
+  15:
+    color: '#00ffc3'
+    name: cat
+  16:
+    color: '#00ffc3'
+    name: dog
+  17:
+    color: '#00ffc3'
+    name: horse
+  18:
+    color: '#00ffc3'
+    name: sheep
+  19:
+    color: '#00ffc3'
+    name: cow
+  20:
+    color: '#00ffc3'
+    name: elephant
+  21:
+    color: '#00ffc3'
+    name: bear
+  22:
+    color: '#00ffc3'
+    name: zebra
+  23:
+    color: '#00ffc3'
+    name: giraffe
+  24:
+    color: '#00ffc3'
+    name: backpack
+  25:
+    color: '#00ffc3'
+    name: umbrella
+  26:
+    color: '#00ffc3'
+    name: handbag
+  27:
+    color: '#00ffc3'
+    name: tie
+  28:
+    color: '#00ffc3'
+    name: suitcase
+  29:
+    color: '#00ffc3'
+    name: frisbee
+  30:
+    color: '#00ffc3'
+    name: skis
+  31:
+    color: '#00ffc3'
+    name: snowboard
+  32:
+    color: '#00ffc3'
+    name: sports ball
+  33:
+    color: '#00ffc3'
+    name: kite
+  34:
+    color: '#00ffc3'
+    name: baseball bat
+  35:
+    color: '#00ffc3'
+    name: baseball glove
+  36:
+    color: '#00ffc3'
+    name: skateboard
+  37:
+    color: '#00ffc3'
+    name: surfboard
+  38:
+    color: '#00ffc3'
+    name: tennis racket
+  39:
+    color: '#00ffc3'
+    name: bottle
+  40:
+    color: '#00ffc3'
+    name: wine glass
+  41:
+    color: '#00ffc3'
+    name: cup
+  42:
+    color: '#00ffc3'
+    name: fork
+  43:
+    color: '#00ffc3'
+    name: knife
+  44:
+    color: '#00ffc3'
+    name: spoon
+  45:
+    color: '#00ffc3'
+    name: bowl
+  46:
+    color: '#00ffc3'
+    name: banana
+  47:
+    color: '#00ffc3'
+    name: apple
+  48:
+    color: '#00ffc3'
+    name: sandwich
+  49:
+    color: '#00ffc3'
+    name: orange
+  50:
+    color: '#00ffc3'
+    name: broccoli
+  51:
+    color: '#00ffc3'
+    name: carrot
+  52:
+    color: '#00ffc3'
+    name: hot dog
+  53:
+    color: '#00ffc3'
+    name: pizza
+  54:
+    color: '#00ffc3'
+    name: donut
+  55:
+    color: '#00ffc3'
+    name: cake
+  56:
+    color: '#00ffc3'
+    name: chair
+  57:
+    color: '#00ffc3'
+    name: couch
+  58:
+    color: '#00ffc3'
+    name: potted plant
+  59:
+    color: '#00ffc3'
+    name: bed
+  60:
+    color: '#00ffc3'
+    name: dining table
+  61:
+    color: '#00ffc3'
+    name: toilet
+  62:
+    color: '#00ffc3'
+    name: tv
+  63:
+    color: '#00ffc3'
+    name: laptop
+  64:
+    color: '#00ffc3'
+    name: mouse
+  65:
+    color: '#00ffc3'
+    name: remote
+  66:
+    color: '#00ffc3'
+    name: keyboard
+  67:
+    color: '#00ffc3'
+    name: cell phone
+  68:
+    color: '#00ffc3'
+    name: microwave
+  69:
+    color: '#00ffc3'
+    name: oven
+  70:
+    color: '#00ffc3'
+    name: toaster
+  71:
+    color: '#00ffc3'
+    name: sink
+  72:
+    color: '#00ffc3'
+    name: refrigerator
+  73:
+    color: '#00ffc3'
+    name: book
+  74:
+    color: '#00ffc3'
+    name: clock
+  75:
+    color: '#00ffc3'
+    name: vase
+  76:
+    color: '#00ffc3'
+    name: scissors
+  77:
+    color: '#00ffc3'
+    name: teddy bear
+  78:
+    color: '#00ffc3'
+    name: hair drier
+  79:
+    color: '#00ffc3'
+    name: toothbrush
+name: coco

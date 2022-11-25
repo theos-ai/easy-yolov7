@@ -1,0 +1,128 @@
+from collections import OrderedDict
+from PIL import ImageColor
+import numpy as np
+import json
+import cv2
+
+
+class Point:
+    def __init__(self, raw_point):
+        self.x = raw_point[0]
+        self.y = raw_point[1]
+
+    def to_string(self):
+        return '(' + str(self.x) + ', ' + str(self.y) + ')'
+    
+    def to_dict(self):
+        return {'x':self.x, 'y':self.y}
+
+
+class Box:
+    def __init__(self, class_name, confidence, raw_corner_points, color):
+        self.class_name = class_name
+        self.confidence = confidence
+        self.raw_corner_points = raw_corner_points
+        self.top_left_point = Point(raw_corner_points[0])
+        self.bottom_right_point = Point(raw_corner_points[1])
+        self.width =  self.bottom_right_point.x - self.top_left_point.x
+        self.height = self.bottom_right_point.y - self.top_left_point.y
+        self.color = color
+
+    def to_dict(self):
+        box = OrderedDict([
+            ('class', self.class_name),
+            ('confidence', self.confidence),
+            ('x', self.top_left_point.x),
+            ('y', self.top_left_point.y),
+            ('width', self.width),
+            ('height', self.height),
+            ('color', self.color)
+        ])
+        return box
+
+
+class Detections:
+    def __init__(self, raw_detection, classes):
+        self.__raw_detection = raw_detection
+        self.__classes = classes
+        self.__boxes = []
+        self.__extract_boxes()
+
+    def __extract_boxes(self):
+         for raw_box in self.__raw_detection:
+            class_id = int(raw_box[5])
+            raw_corner_points = (int(raw_box[0]), int(raw_box[1])), (int(raw_box[2]), int(raw_box[3]))
+            confidence = raw_box[4]
+            dataset_class = self.__classes[class_id]
+            class_name = dataset_class['name']
+            class_color = dataset_class['color']
+            box = Box(class_name, confidence, raw_corner_points, class_color)
+            self.__boxes.append(box)
+        
+    def get_boxes(self):
+        return self.__boxes
+
+    def to_dict(self):
+        boxes = []
+        for box in self.__boxes:
+            boxes.append(box.to_dict())
+        return boxes
+
+    def to_json(self):
+        boxes = self.to_dict()
+        return json.dumps(boxes, indent=4)
+
+
+def plot_box(image, top_left_point, bottom_right_point, width, height, label, color=(210,240,0), padding=6, font_scale=0.25, alpha=0.95):
+    label = label.upper()
+    if alpha > 1:
+        alpha = 1
+    
+    if alpha > 0:
+        box_crop = image[top_left_point['y']:top_left_point['y']+height, top_left_point['x']:top_left_point['x']+width]
+        colored_rect = np.ones(box_crop.shape, dtype=np.uint8)
+        colored_rect[:,:,0] = color[0] - 90 if color[0] - 90 >= 0 else 0
+        colored_rect[:,:,1] = color[1] - 90 if color[1] - 90 >= 0 else 0
+        colored_rect[:,:,2] = color[2] - 90 if color[2] - 90 >= 0 else 0
+        box_crop_weighted = cv2.addWeighted(box_crop, 1 - alpha, colored_rect, alpha, 1.0)
+        image[top_left_point['y']:top_left_point['y']+height, top_left_point['x']:top_left_point['x']+width] = box_crop_weighted
+
+    cv2.rectangle(image, (top_left_point['x'] - 1, top_left_point['y']), (bottom_right_point['x'], bottom_right_point['y']), color, thickness=2, lineType=cv2.LINE_AA)
+    res_scale = (image.shape[0] + image.shape[1])/1600
+    font_scale = font_scale * res_scale
+    font_width, font_height = 0, 0
+    font_face = cv2.FONT_HERSHEY_DUPLEX
+    text_size = cv2.getTextSize(label, font_face, fontScale=font_scale, thickness=1)[0]
+
+    if text_size[0] > font_width:
+        font_width = text_size[0]
+    if text_size[1] > font_height:
+        font_height = text_size[1]
+    if top_left_point['x'] - 1 < 0:
+        top_left_point['x'] = 1
+    if top_left_point['x'] + font_width + padding*2 > image.shape[1]:
+        top_left_point['x'] = image.shape[1] - font_width - padding*2
+    if top_left_point['y'] - font_height - padding*2  < 0:
+        top_left_point['y'] = font_height + padding*2
+    
+    p3 = top_left_point['x'] + font_width + padding*2, top_left_point['y'] - font_height - padding*2
+    cv2.rectangle(image, (top_left_point['x'] - 2, top_left_point['y']), p3, color, -1, lineType=cv2.LINE_AA)
+    x = top_left_point['x'] + padding
+    y = top_left_point['y'] - padding
+    cv2.putText(image, label, (x, y), font_face, font_scale, [0, 0, 0], thickness=1, lineType=cv2.LINE_AA)
+    return image
+
+def draw(image, detections, alpha=0.15):
+    image_copy = image.copy()
+    for box in detections:
+        class_name = box['class']
+        conf = box['confidence']
+        label = class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + box['text'] if ('text' in box and box['text']) else '')
+        width = box['width']
+        height = box['height']
+        color = ImageColor.getrgb(box['color'])
+        color = (color[2], color[1], color[0])
+        top_left_point = {'x':box['x'], 'y':box['y']}
+        bottom_right_point = {'x':box['x'] + width, 'y':box['y'] + height}
+        image_copy = plot_box(image_copy, top_left_point, bottom_right_point, width, height, label, color=color, alpha=alpha)
+    return image_copy
