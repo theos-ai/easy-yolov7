@@ -31,7 +31,6 @@ while video.isOpened():
         break
 
 pbar.close()
-print('\n')
 video.release()
 output.release()
 yolov7.unload()

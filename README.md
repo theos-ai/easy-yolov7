@@ -18,6 +18,12 @@ pip install -r requirements.txt
 python image.py
 ```
 
+### Detect the webcam
+
+```
+python video.py
+```
+
 ### Detect the video
 
 ```
