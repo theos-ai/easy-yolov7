@@ -17,3 +17,11 @@ pip install -r requirements.txt
 ```
 python image.py
 ```
+
+### Detect the video
+
+![Elon Musk](output.mp4)
+
+```
+python video.py
+```

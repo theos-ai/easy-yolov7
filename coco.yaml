@@ -1,242 +1,161 @@
 classes:
-  0:
+  - name: person
     color: '#00ffc3'
-    name: person
-  1:
+  - name: bicycle
     color: '#00ffc3'
-    name: bicycle
-  2:
+  - name: car
     color: '#00ffc3'
-    name: car
-  3:
+  - name: motorcycle
     color: '#00ffc3'
-    name: motorcycle
-  4:
+  - name: airplane
     color: '#00ffc3'
-    name: airplane
-  5:
+  - name: bus
     color: '#00ffc3'
-    name: bus
-  6:
+  - name: train
     color: '#00ffc3'
-    name: train
-  7:
+  - name: truck
     color: '#00ffc3'
-    name: truck
-  8:
+  - name: boat
     color: '#00ffc3'
-    name: boat
-  9:
+  - name: traffic light
     color: '#00ffc3'
-    name: traffic light
-  10:
+  - name: fire hydrant
     color: '#00ffc3'
-    name: fire hydrant
-  11:
+  - name: stop sign
     color: '#00ffc3'
-    name: stop sign
-  12:
+  - name: parking meter
     color: '#00ffc3'
-    name: parking meter
-  13:
+  - name: bench
     color: '#00ffc3'
-    name: bench
-  14:
+  - name: bird
     color: '#00ffc3'
-    name: bird
-  15:
+  - name: cat
     color: '#00ffc3'
-    name: cat
-  16:
+  - name: dog
     color: '#00ffc3'
-    name: dog
-  17:
+  - name: horse
     color: '#00ffc3'
-    name: horse
-  18:
+  - name: sheep
     color: '#00ffc3'
-    name: sheep
-  19:
+  - name: cow
     color: '#00ffc3'
-    name: cow
-  20:
+  - name: elephant
     color: '#00ffc3'
-    name: elephant
-  21:
+  - name: bear
     color: '#00ffc3'
-    name: bear
-  22:
+  - name: zebra
     color: '#00ffc3'
-    name: zebra
-  23:
+  - name: giraffe
     color: '#00ffc3'
-    name: giraffe
-  24:
+  - name: backpack
     color: '#00ffc3'
-    name: backpack
-  25:
+  - name: umbrella
     color: '#00ffc3'
-    name: umbrella
-  26:
+  - name: handbag
     color: '#00ffc3'
-    name: handbag
-  27:
+  - name: tie
     color: '#00ffc3'
-    name: tie
-  28:
+  - name: suitcase
     color: '#00ffc3'
-    name: suitcase
-  29:
+  - name: frisbee
     color: '#00ffc3'
-    name: frisbee
-  30:
+  - name: skis
     color: '#00ffc3'
-    name: skis
-  31:
+  - name: snowboard
     color: '#00ffc3'
-    name: snowboard
-  32:
+  - name: sports ball
     color: '#00ffc3'
-    name: sports ball
-  33:
+  - name: kite
     color: '#00ffc3'
-    name: kite
-  34:
+  - name: baseball bat
     color: '#00ffc3'
-    name: baseball bat
-  35:
+  - name: baseball glove
     color: '#00ffc3'
-    name: baseball glove
-  36:
+  - name: skateboard
     color: '#00ffc3'
-    name: skateboard
-  37:
+  - name: surfboard
     color: '#00ffc3'
-    name: surfboard
-  38:
+  - name: tennis racket
     color: '#00ffc3'
-    name: tennis racket
-  39:
+  - name: bottle
     color: '#00ffc3'
-    name: bottle
-  40:
+  - name: wine glass
     color: '#00ffc3'
-    name: wine glass
-  41:
+  - name: cup
     color: '#00ffc3'
-    name: cup
-  42:
+  - name: fork
     color: '#00ffc3'
-    name: fork
-  43:
+  - name: knife
     color: '#00ffc3'
-    name: knife
-  44:
+  - name: spoon
     color: '#00ffc3'
-    name: spoon
-  45:
+  - name: bowl
     color: '#00ffc3'
-    name: bowl
-  46:
+  - name: banana
     color: '#00ffc3'
-    name: banana
-  47:
+  - name: apple
     color: '#00ffc3'
-    name: apple
-  48:
+  - name: sandwich
     color: '#00ffc3'
-    name: sandwich
-  49:
+  - name: orange
     color: '#00ffc3'
-    name: orange
-  50:
+  - name: broccoli
     color: '#00ffc3'
-    name: broccoli
-  51:
+  - name: broccoli
     color: '#00ffc3'
-    name: carrot
-  52:
+  - name: hot dog
     color: '#00ffc3'
-    name: hot dog
-  53:
+  - name: pizza
     color: '#00ffc3'
-    name: pizza
-  54:
+  - name: donut
     color: '#00ffc3'
-    name: donut
-  55:
+  - name: cake
     color: '#00ffc3'
-    name: cake
-  56:
+  - name: chair
     color: '#00ffc3'
-    name: chair
-  57:
+  - name: couch
     color: '#00ffc3'
-    name: couch
-  58:
+  - name: potted plant
     color: '#00ffc3'
-    name: potted plant
-  59:
+  - name: bed
     color: '#00ffc3'
-    name: bed
-  60:
+  - name: dining table
     color: '#00ffc3'
-    name: dining table
-  61:
+  - name: toilet
     color: '#00ffc3'
-    name: toilet
-  62:
+  - name: tv
     color: '#00ffc3'
-    name: tv
-  63:
+  - name: laptop
     color: '#00ffc3'
-    name: laptop
-  64:
+  - name: mouse
     color: '#00ffc3'
-    name: mouse
-  65:
+  - name: remote
     color: '#00ffc3'
-    name: remote
-  66:
+  - name: keyboard
     color: '#00ffc3'
-    name: keyboard
-  67:
+  - name: cell phone
     color: '#00ffc3'
-    name: cell phone
-  68:
+  - name: microwave
     color: '#00ffc3'
-    name: microwave
-  69:
+  - name: oven
     color: '#00ffc3'
-    name: oven
-  70:
+  - name: toaster
     color: '#00ffc3'
-    name: toaster
-  71:
+  - name: sink
     color: '#00ffc3'
-    name: sink
-  72:
+  - name: refrigerator
     color: '#00ffc3'
-    name: refrigerator
-  73:
+  - name: book
     color: '#00ffc3'
-    name: book
-  74:
+  - name: clock
     color: '#00ffc3'
-    name: clock
-  75:
+  - name: vase
     color: '#00ffc3'
-    name: vase
-  76:
+  - name: scissors
     color: '#00ffc3'
-    name: scissors
-  77:
+  - name: teddy bear
     color: '#00ffc3'
-    name: teddy bear
-  78:
+  - name: hair drier
     color: '#00ffc3'
-    name: hair drier
-  79:
+  - name: toothbrush
     color: '#00ffc3'
-    name: toothbrush
-name: coco
