@@ -33,20 +33,20 @@ python video.py
 https://user-images.githubusercontent.com/14842535/204094120-8fc55f91-cc30-4097-9ad5-06f3cbc27b9c.mp4
 
 ## Train on your own custom dataset
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/MorMkGS6_WU/0.jpg)](https://www.youtube.com/watch?v=MorMkGS6_WU)
+Watch the following tutorial to learn how to do it.
+[![How to Train YOLO v7 on a Custom Dataset for Gun Detection in Security Cameras](assets/youtube.jpg)](https://www.youtube.com/watch?v=MorMkGS6_WU)
 
 ### Click the weights button
-
+Go to your training experiment and click the weights button on the top right.
 ![Download weights button of Theos AI](assets/button.jpg)
 
 ### Download the files
-Download the best or last weights and the classes YAML file and put them inside this directory.
+Download the best or last weights and the classes YAML file and put them inside the repository folder.
 
 ![Download weights modal of Theos AI](assets/weights.jpg)
 
-### Change this line to use your custom model
-
+### Use your own custom model
+Change the following line to use your custom model.
 ``` Python
 yolov7.load('best.weights', classes='classes.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
 ```
