@@ -19,8 +19,7 @@ try:
             detected_frame = draw(frame, detections)
             print(json.dumps(detections, indent=4))
             cv2.imshow('webcam', detected_frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            cv2.waitKey(1)
         else:
             break
 except KeyboardInterrupt:
