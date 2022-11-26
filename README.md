@@ -21,7 +21,7 @@ python image.py
 ### Detect the webcam
 
 ```
-python video.py
+python webcam.py
 ```
 
 ### Detect the video
