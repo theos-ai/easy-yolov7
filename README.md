@@ -40,7 +40,7 @@ Watch the following tutorial to learn how to do it.
 
 ### Click the weights button
 
-Go to your training experiment and click the weights button on the top right.
+Go to your training experiment and click the weights button on the top right corner.
 
 ![Download weights button of Theos AI](assets/button.jpg)
 
