@@ -17,3 +17,12 @@ pip install -r requirements.txt
 ```
 python image.py
 ```
+
+
+### Detect the video
+
+https://user-images.githubusercontent.com/14842535/204093436-51e4ddf4-89e1-4687-a1ae-b54724ed1aaf.mp4
+
+```
+python video.py
+```
