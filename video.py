@@ -4,7 +4,7 @@ from tqdm import tqdm
 import cv2
 
 yolov7 = YOLOv7()
-yolov7.load('coco.weights', classes='coco.yaml', device='cpu')
+yolov7.load('coco.weights', classes='coco.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
 
 video = cv2.VideoCapture('video.mp4')
 width  = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
