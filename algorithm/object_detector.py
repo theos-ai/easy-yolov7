@@ -21,7 +21,6 @@ class YOLOv7:
     def load(self, weights_path, classes, device='cpu'):
         with torch.no_grad():
             self.device = select_device(device)
-            print('DEVICE:', self.device)
             self.model = attempt_load(weights_path, device=self.device)
             if self.device != 'cpu':
                 self.model.half()
