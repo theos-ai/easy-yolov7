@@ -6,13 +6,13 @@ import cv2
 yolov7 = YOLOv7()
 yolov7.load('coco.weights', classes='coco.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
 
-video = cv2.VideoCapture('messi.mp4')
+video = cv2.VideoCapture('video.mp4')
 width  = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = int(video.get(cv2.CAP_PROP_FPS))
 frames_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-output = cv2.VideoWriter('video.mp4', fourcc, fps, (width, height))
+output = cv2.VideoWriter('output.mp4', fourcc, fps, (width, height))
 
 if video.isOpened() == False:
 	print('[!] error opening the video')
