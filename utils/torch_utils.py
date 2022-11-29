@@ -18,6 +18,7 @@ def select_device(device='cpu', batch_size=None):
             raise Exception('no GPU found on this machine.')
         if n > 1 and batch_size:  # check that batch_size is compatible with device_count
             assert batch_size % n == 0, f'batch-size {batch_size} not multiple of GPU count {n}'
+
     return torch.device('cuda:0' if cuda else 'cpu')
 
 def initialize_weights(model):
