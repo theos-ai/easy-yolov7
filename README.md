@@ -42,10 +42,10 @@ https://192.168.0.204:8080/video
 https://192.168.0.205:8080/video
 ```
 
-Then execute the stream script
+Then execute the streams script
 
 ```
-python stream.py
+python streams.py
 ```
 
 ## Train YOLOv7 on your own custom dataset
