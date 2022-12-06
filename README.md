@@ -42,7 +42,7 @@ https://192.168.0.204:8080/video
 https://192.168.0.205:8080/video
 ```
 
-Then execute the streams script
+Then execute the streams script.
 
 ```
 python streams.py
