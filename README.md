@@ -32,6 +32,22 @@ python video.py
 
 https://user-images.githubusercontent.com/14842535/204094120-8fc55f91-cc30-4097-9ad5-06f3cbc27b9c.mp4
 
+### Detect multiple live video streams in parallel
+
+Create a new text file called streams.txt inside the repository folder and put the URL of the stream in each line, for example:
+
+```
+https://192.168.0.203:8080/video
+https://192.168.0.204:8080/video
+https://192.168.0.205:8080/video
+```
+
+Execute the stream script
+
+```
+python stream.py
+```
+
 ## Train YOLOv7 on your own custom dataset
 
 Watch the following tutorial to learn how to do it.

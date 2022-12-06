@@ -22,9 +22,11 @@ class YOLOv7:
         with torch.no_grad():
             self.device = select_device(device)
             self.model = attempt_load(weights_path, device=self.device)
-            if self.device != 'cpu':
+            
+            if device != 'cpu':
                 self.model.half()
                 self.model.to(self.device).eval()
+
             stride = int(self.model.stride.max())
             self.imgsz = check_img_size(self.settings['img_size'], s=stride)
             self.classes = yaml.load(open(classes), Loader=yaml.SafeLoader)['classes']

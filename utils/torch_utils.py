@@ -9,7 +9,7 @@ def select_device(device='cpu', batch_size=None):
     
     if not cpu and not torch.cuda.is_available():
         raise Exception('no CUDA installation found on this machine.')
-        
+    
     cuda = not cpu and torch.cuda.is_available()
     
     if cuda:
