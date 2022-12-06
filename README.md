@@ -34,7 +34,7 @@ https://user-images.githubusercontent.com/14842535/204094120-8fc55f91-cc30-4097-
 
 ### Detect multiple live video streams in parallel
 
-Create a new text file called streams.txt inside the repository folder and put the URL of the stream in each line, for example:
+Create a new text file called **streams.txt** inside the repository folder and put the URLs of the streams in each new line, for example:
 
 ```
 https://192.168.0.203:8080/video
@@ -42,7 +42,7 @@ https://192.168.0.204:8080/video
 https://192.168.0.205:8080/video
 ```
 
-Execute the stream script
+Then execute the stream script
 
 ```
 python stream.py
