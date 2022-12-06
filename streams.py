@@ -6,7 +6,7 @@ import cv2
 
 WEIGHTS = 'coco.weights'
 CLASSES = 'coco.yaml'
-DEVICE = 'cpu' # use 'gpu' for CUDA GPU inference
+DEVICE  = 'cpu'         # use 'gpu' for CUDA GPU inference
 STREAMS = 'streams.txt'
 
 yolov7 = YOLOv7()
