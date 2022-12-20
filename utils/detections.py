@@ -117,7 +117,10 @@ def draw(image, detections, alpha=0.15):
     for box in detections:
         class_name = box['class']
         conf = box['confidence']
-        label = class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + box['text'] if ('text' in box and box['text']) else '')
+        text = ''
+        if 'text' in box and len(box['text']) > 50:
+            text = box['text'][:50] + ' ...'
+        label = class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + text if ('text' in box and box['text']) else '')
         width = box['width']
         height = box['height']
         color = ImageColor.getrgb(box['color'])

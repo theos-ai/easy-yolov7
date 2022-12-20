@@ -1,21 +1,23 @@
 import warnings
 warnings.filterwarnings('ignore')
-from utils.general import check_img_size, non_max_suppression, scale_coords
+from utils.general import check_img_size, non_max_suppression, scale_coords, crop
 from models.experimental import attempt_load
 from utils.torch_utils import select_device
 from utils.detections import Detections
 from utils.datasets import letterbox
+from utils import ocr
 import numpy as np
 import torch
 import yaml
 
 
 class YOLOv7:
-    def __init__(self):
+    def __init__(self, conf_thres=0.25, iou_thres=0.45, img_size=640, ocr_classes=[]):
         self.settings = {
-            'conf_thres':0.25,
-            'iou_thres':0.45,
-            'img_size':640
+            'conf_thres':conf_thres,
+            'iou_thres':iou_thres,
+            'img_size':img_size,
+            'ocr_classes':ocr_classes
         }
 
     def load(self, weights_path, classes, device='cpu'):
@@ -70,5 +72,12 @@ class YOLOv7:
                     for *xyxy, conf, cls in reversed(det):
                         raw_detection = np.concatenate((raw_detection, [[int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3]), round(float(conf), 2), int(cls)]]))
 
-            detections = Detections(raw_detection, self.classes)
-            return detections.to_dict()
+            detections = Detections(raw_detection, self.classes).to_dict()
+
+            if len(self.settings['ocr_classes']) > 0:
+                for detection in detections:
+                    if detection['class'] in self.settings['ocr_classes']:
+                        cropped_box = crop(im0, detection)
+                        detection['text'] = ocr.read(cropped_box)
+            
+            return detections

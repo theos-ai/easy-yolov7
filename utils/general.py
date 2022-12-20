@@ -126,3 +126,10 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, agnostic=Fa
             break  # time limit exceeded
 
     return output
+
+def crop(image, detection):
+    x = detection['x']
+    y = detection['y']
+    width = detection['width']
+    height = detection['height']
+    return image[y:y+height, x:x+width]

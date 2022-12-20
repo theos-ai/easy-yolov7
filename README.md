@@ -48,6 +48,14 @@ Then execute the streams script.
 python streams.py
 ```
 
+### Detect and OCR
+
+```
+python ocr_image.py
+```
+
+![Easy YOLOv7 and OCR by Theos AI](detected_phone.jpg)
+
 ## Train YOLOv7 on your own custom dataset
 
 Watch the following tutorial to learn how to do it.
