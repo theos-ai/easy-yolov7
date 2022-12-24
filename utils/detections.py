@@ -55,8 +55,8 @@ class Detections:
         self.__point3_index = 2
         self.__point4_index = 3
         self.__tracking_index = 4
-        self.__class_index = 5
-        self.__confidence_index = 6
+        self.__class_index = 5 if tracking else 4
+        self.__confidence_index = 6 if tracking else 5
         self.__extract_boxes()
 
     def __extract_boxes(self):
