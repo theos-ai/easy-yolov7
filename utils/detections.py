@@ -18,7 +18,7 @@ class Point:
 
 
 class Box:
-    def __init__(self, class_name, confidence, raw_corner_points, color):
+    def __init__(self, class_name, confidence, raw_corner_points, color, track_id=None):
         self.class_name = class_name
         self.confidence = confidence
         self.raw_corner_points = raw_corner_points
@@ -27,6 +27,7 @@ class Box:
         self.width =  self.bottom_right_point.x - self.top_left_point.x
         self.height = self.bottom_right_point.y - self.top_left_point.y
         self.color = color
+        self.track_id = track_id
 
     def to_dict(self):
         box = OrderedDict([
@@ -38,25 +39,38 @@ class Box:
             ('height', self.height),
             ('color', self.color)
         ])
+        if self.track_id is not None:
+            box['id'] = self.track_id
         return box
 
 
 class Detections:
-    def __init__(self, raw_detection, classes):
+    def __init__(self, raw_detection, classes, tracking=False):
         self.__raw_detection = raw_detection
         self.__classes = classes
         self.__boxes = []
+        self.__tracking = tracking
+        self.__point1_index = 0
+        self.__point2_index = 1
+        self.__point3_index = 2
+        self.__point4_index = 3
+        self.__tracking_index = 4
+        self.__class_index = 5
+        self.__confidence_index = 6
         self.__extract_boxes()
 
     def __extract_boxes(self):
          for raw_box in self.__raw_detection:
-            class_id = int(raw_box[5])
-            raw_corner_points = (int(raw_box[0]), int(raw_box[1])), (int(raw_box[2]), int(raw_box[3]))
-            confidence = raw_box[4]
+            track_id = None
+            if self.__tracking:
+                track_id = int(raw_box[self.__tracking_index])
+            class_id = int(raw_box[self.__class_index])
+            raw_corner_points = (int(raw_box[self.__point1_index]), int(raw_box[self.__point2_index])), (int(raw_box[self.__point3_index]), int(raw_box[self.__point4_index]))
+            confidence = raw_box[self.__confidence_index]
             dataset_class = self.__classes[class_id]
             class_name = dataset_class['name']
             class_color = dataset_class['color']
-            box = Box(class_name, confidence, raw_corner_points, class_color)
+            box = Box(class_name, confidence, raw_corner_points, class_color, track_id=track_id)
             self.__boxes.append(box)
         
     def get_boxes(self):
@@ -73,20 +87,9 @@ class Detections:
         return json.dumps(boxes, indent=4)
 
 
-def plot_box(image, top_left_point, bottom_right_point, width, height, label, color=(210,240,0), padding=6, font_scale=0.25, alpha=0.95):
+def plot_box(image, top_left_point, bottom_right_point, width, height, label, color=(210,240,0), padding=6, font_scale=0.25):
     label = label.upper()
-    if alpha > 1:
-        alpha = 1
     
-    if alpha > 0:
-        box_crop = image[top_left_point['y']:top_left_point['y']+height, top_left_point['x']:top_left_point['x']+width]
-        colored_rect = np.ones(box_crop.shape, dtype=np.uint8)
-        colored_rect[:,:,0] = color[0] - 90 if color[0] - 90 >= 0 else 0
-        colored_rect[:,:,1] = color[1] - 90 if color[1] - 90 >= 0 else 0
-        colored_rect[:,:,2] = color[2] - 90 if color[2] - 90 >= 0 else 0
-        box_crop_weighted = cv2.addWeighted(box_crop, 1 - alpha, colored_rect, alpha, 1.0)
-        image[top_left_point['y']:top_left_point['y']+height, top_left_point['x']:top_left_point['x']+width] = box_crop_weighted
-
     cv2.rectangle(image, (top_left_point['x'] - 1, top_left_point['y']), (bottom_right_point['x'], bottom_right_point['y']), color, thickness=2, lineType=cv2.LINE_AA)
     res_scale = (image.shape[0] + image.shape[1])/1600
     font_scale = font_scale * res_scale
@@ -112,7 +115,7 @@ def plot_box(image, top_left_point, bottom_right_point, width, height, label, co
     cv2.putText(image, label, (x, y), font_face, font_scale, [0, 0, 0], thickness=1, lineType=cv2.LINE_AA)
     return image
 
-def draw(image, detections, alpha=0.15):
+def draw(image, detections):
     image_copy = image.copy()
     for box in detections:
         class_name = box['class']
@@ -120,12 +123,12 @@ def draw(image, detections, alpha=0.15):
         text = ''
         if 'text' in box and len(box['text']) > 50:
             text = box['text'][:50] + ' ...'
-        label = class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + text if ('text' in box and box['text']) else '')
+        label = (str(box['id']) + '. ' if 'id' in box else '') + class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + text if ('text' in box and box['text']) else '')
         width = box['width']
         height = box['height']
         color = ImageColor.getrgb(box['color'])
         color = (color[2], color[1], color[0])
         top_left_point = {'x':box['x'], 'y':box['y']}
         bottom_right_point = {'x':box['x'] + width, 'y':box['y'] + height}
-        image_copy = plot_box(image_copy, top_left_point, bottom_right_point, width, height, label, color=color, alpha=alpha)
+        image_copy = plot_box(image_copy, top_left_point, bottom_right_point, width, height, label, color=color)
     return image_copy

@@ -5,6 +5,7 @@ from models.experimental import attempt_load
 from utils.torch_utils import select_device
 from utils.detections import Detections
 from utils.datasets import letterbox
+from byte_tracker import BYTETracker
 from utils import ocr
 import numpy as np
 import torch
@@ -19,6 +20,7 @@ class YOLOv7:
             'img_size':img_size,
             'ocr_classes':ocr_classes
         }
+        self.tracker = BYTETracker()
 
     def load(self, weights_path, classes, device='cpu'):
         with torch.no_grad():
@@ -58,7 +60,7 @@ class YOLOv7:
 
         return im0, img
 
-    def detect(self, img):
+    def detect(self, img, track=False):
         with torch.no_grad():
             im0, img = self.__parse_image(img)
             pred = self.model(img)[0]
@@ -68,11 +70,13 @@ class YOLOv7:
             for det in pred:
                 if len(det) > 0:
                     det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
-
                     for *xyxy, conf, cls in reversed(det):
                         raw_detection = np.concatenate((raw_detection, [[int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3]), round(float(conf), 2), int(cls)]]))
 
-            detections = Detections(raw_detection, self.classes).to_dict()
+            if track:
+                raw_detection = self.tracker.update(raw_detection)
+            
+            detections = Detections(raw_detection, self.classes, tracking=track).to_dict()
 
             if len(self.settings['ocr_classes']) > 0:
                 for detection in detections:

@@ -48,6 +48,18 @@ Then execute the streams script.
 python streams.py
 ```
 
+### Track video
+
+```
+python track_video.py
+```
+
+### Track webcam
+
+```
+python track_webcam.py
+```
+
 ### Detect and OCR
 
 ```
