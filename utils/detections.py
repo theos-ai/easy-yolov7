@@ -126,8 +126,12 @@ def draw(image, detections):
         label = (str(box['id']) + '. ' if 'id' in box else '') + class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + text if ('text' in box and box['text']) else '')
         width = box['width']
         height = box['height']
-        color = ImageColor.getrgb(box['color'])
-        color = (color[2], color[1], color[0])
+        color = box['color']
+
+        if isinstance(color, str):
+            color = ImageColor.getrgb(color)
+            color = (color[2], color[1], color[0])
+        
         top_left_point = {'x':box['x'], 'y':box['y']}
         bottom_right_point = {'x':box['x'] + width, 'y':box['y'] + height}
         image_copy = plot_box(image_copy, top_left_point, bottom_right_point, width, height, label, color=color)
