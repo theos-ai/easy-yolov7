@@ -121,9 +121,11 @@ def draw(image, detections):
         class_name = box['class']
         conf = box['confidence']
         text = ''
-        if 'text' in box and len(box['text']) > 50:
-            text = box['text'][:50] + ' ...'
-        label = (str(box['id']) + '. ' if 'id' in box else '') + class_name + ' ' + str(int(conf*100)) + '%' + (' | ' + text if ('text' in box and box['text']) else '')
+        if 'text' in box:
+            text = box['text']
+            if len(text) > 50:
+                text = text[:50] + ' ...'
+        label = (str(box['id']) + '. ' if 'id' in box else '') + class_name + ' ' + str(int(conf*100)) + '%' + ((' | ' + text) if ('text' in box and len(box['text']) > 0 and not box['text'].isspace()) else '')
         width = box['width']
         height = box['height']
         color = box['color']

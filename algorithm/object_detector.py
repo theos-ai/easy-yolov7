@@ -82,6 +82,11 @@ class YOLOv7:
                 for detection in detections:
                     if detection['class'] in self.settings['ocr_classes']:
                         cropped_box = crop(im0, detection)
-                        detection['text'] = ocr.read(cropped_box)
+                        text = ''
+                        try:
+                            text = ocr.read(cropped_box)
+                        except:
+                            pass
+                        detection['text'] = text
             
             return detections
