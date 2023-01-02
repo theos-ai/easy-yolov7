@@ -4,7 +4,7 @@ from tqdm import tqdm
 import cv2
 
 yolov7 = YOLOv7()
-yolov7.load('best.weights', classes='classes.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
+yolov7.load('anpr.weights', classes='anpr.yaml', device='cpu') # use 'gpu' for CUDA GPU inference
 ocr_classes=['license-plate']
 yolov7.set(ocr_classes=ocr_classes)
 

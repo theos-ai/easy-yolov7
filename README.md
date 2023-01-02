@@ -48,25 +48,33 @@ Then execute the streams script.
 python streams.py
 ```
 
-### Track video
+### Track the video
 
 ```
 python track_video.py
 ```
 
-### Track webcam
+### Track the webcam
 
 ```
 python track_webcam.py
 ```
 
-### Detect and OCR
+### Detect and OCR the image
 
 ```
 python ocr_image.py
 ```
 
 ![Easy YOLOv7 and OCR by Theos AI](detected_phone.jpg)
+
+### Detect and OCR the video
+
+In this script uses a license plate recognition model, feel free to edit it for your specific use case.
+
+```
+python ocr_video.py
+```
 
 ## Train YOLOv7 on your own custom dataset
 
