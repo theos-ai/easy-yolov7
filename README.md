@@ -70,7 +70,7 @@ python ocr_image.py
 
 ### Detect and OCR the video
 
-In this script uses a license plate recognition model, feel free to edit it for your specific use case.
+This script uses a license plate recognition model (ANPR / ALPR), so you will have to edit it for it to work with your own model by changing the **weights** file, **classes** yaml file and finally the **ocr_classes** list.
 
 ```
 python ocr_video.py
