@@ -1,0 +1,161 @@
+classes:
+  - name: insan
+    color: '#00ffc3'
+  - name: bisiklet
+    color: '#00ffc3'
+  - name: araba
+    color: '#00ffc3'
+  - name: motorsiklet
+    color: '#00ffc3'
+  - name: ucak
+    color: '#00ffc3'
+  - name: otobus
+    color: '#00ffc3'
+  - name: tren
+    color: '#00ffc3'
+  - name: kamyon
+    color: '#00ffc3'
+  - name: bot
+    color: '#00ffc3'
+  - name: trafik lambasi
+    color: '#00ffc3'
+  - name: yangin musluğu
+    color: '#00ffc3'
+  - name: dur isareti
+    color: '#00ffc3'
+  - name: parkmetre
+    color: '#00ffc3'
+  - name: Banka
+    color: '#00ffc3'
+  - name: Kus
+    color: '#00ffc3'
+  - name: Kedi
+    color: '#00ffc3'
+  - name: Kopek
+    color: '#00ffc3'
+  - name: At
+    color: '#00ffc3'
+  - name: Koyun
+    color: '#00ffc3'
+  - name: İnek
+    color: '#00ffc3'
+  - name: Fil
+    color: '#00ffc3'
+  - name: Ayi
+    color: '#00ffc3'
+  - name: zebra
+    color: '#00ffc3'
+  - name: zürafa
+    color: '#00ffc3'
+  - name: sirt cantasi
+    color: '#00ffc3'
+  - name: semsiye
+    color: '#00ffc3'
+  - name: el cantasi
+    color: '#00ffc3'
+  - name: kravat
+    color: '#00ffc3'
+  - name: bavul
+    color: '#00ffc3'
+  - name: frizbi
+    color: '#00ffc3'
+  - name: kayaklar
+    color: '#00ffc3'
+  - name: snowboard
+    color: '#00ffc3'
+  - name: spor topu
+    color: '#00ffc3'
+  - name: ucurtma
+    color: '#00ffc3'
+  - name: beyzbol sopasi
+    color: '#00ffc3'
+  - name: beyzbol eldiveni
+    color: '#00ffc3'
+  - name: kaykay
+    color: '#00ffc3'
+  - name: sorf tahtasi
+    color: '#00ffc3'
+  - name: tenis raketi
+    color: '#00ffc3'
+  - name: sise
+    color: '#00ffc3'
+  - name: sarap bardagi
+    color: '#00ffc3'
+  - name: fincan
+    color: '#00ffc3'
+  - name: catal
+    color: '#00ffc3'
+  - name: bicak
+    color: '#00ffc3'
+  - name: kasik
+    color: '#00ffc3'
+  - name: tas
+    color: '#00ffc3'
+  - name: muz
+    color: '#00ffc3'
+  - name: elma
+    color: '#00ffc3'
+  - name: sandvic
+    color: '#00ffc3'
+  - name: portakal
+    color: '#00ffc3'
+  - name: brokoli
+    color: '#00ffc3'
+  - name: brokoli
+    color: '#00ffc3'
+  - name: sosis
+    color: '#00ffc3'
+  - name: pizza
+    color: '#00ffc3'
+  - name: donut
+    color: '#00ffc3'
+  - name: kek
+    color: '#00ffc3'
+  - name: sandalye
+    color: '#00ffc3'
+  - name: kanepe
+    color: '#00ffc3'
+  - name: saksi bitkisi
+    color: '#00ffc3'
+  - name: yatak
+    color: '#00ffc3'
+  - name: yemek masasi
+    color: '#00ffc3'
+  - name: tuvalet
+    color: '#00ffc3'
+  - name: televizyon
+    color: '#00ffc3'
+  - name: bilgisayar
+    color: '#00ffc3'
+  - name: mouse
+    color: '#00ffc3'
+  - name: remote
+    color: '#00ffc3'
+  - name: klavye
+    color: '#00ffc3'
+  - name: cep telefonu
+    color: '#00ffc3'
+  - name: mikrodalga
+    color: '#00ffc3'
+  - name: firin
+    color: '#00ffc3'
+  - name: tost makinasi
+    color: '#00ffc3'
+  - name: lavabo
+    color: '#00ffc3'
+  - name: buzdolabi
+    color: '#00ffc3'
+  - name: kitap
+    color: '#00ffc3'
+  - name: saat
+    color: '#00ffc3'
+  - name: vazo
+    color: '#00ffc3'
+  - name: makas
+    color: '#00ffc3'
+  - name: oyuncak ayi
+    color: '#00ffc3'
+  - name: sac kurutma makinesi
+    color: '#00ffc3'
+  - name: dis fircasi
+    color: '#00ffc3'
