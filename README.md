@@ -92,7 +92,7 @@ Go to your training experiment and click the weights button on the top right cor
 
 Download the best or last weights and the classes YAML file and put them inside the repository folder.
 
-![Download weights modal of Theos AI](assets/weights.jpg)
+![Download weights modal of Theos AI](assets/weights.jpeg)
 
 ### Use your own custom model
 
