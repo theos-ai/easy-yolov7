@@ -9,5 +9,5 @@ yolov7.load('coco.weights', classes='coco.yaml', device='cpu') # use 'gpu' for C
 image = cv2.imread('phone.webp')
 detections = yolov7.detect(image)
 detected_image = draw(image, detections)
-cv2.imwrite('detected_phone.jpg', detected_image)
+cv2.imwrite('detected_ocr.jpg', detected_image)
 print(json.dumps(detections, indent=4))

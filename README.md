@@ -66,7 +66,7 @@ python track_webcam.py
 python ocr_image.py
 ```
 
-![Easy YOLOv7 and OCR by Theos AI](detected_phone.jpg)
+![Easy YOLOv7 and OCR by Theos AI](detected_ocr.jpg)
 
 ### Detect and OCR the video
 
