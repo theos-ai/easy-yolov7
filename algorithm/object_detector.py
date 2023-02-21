@@ -6,7 +6,6 @@ from utils.torch_utils import select_device
 from utils.detections import Detections
 from utils.datasets import letterbox
 from byte_tracker import BYTETracker
-from utils import ocr
 import numpy as np
 import torch
 import yaml
@@ -21,8 +20,9 @@ class YOLOv7:
             'ocr_classes':ocr_classes
         }
         self.tracker = BYTETracker()
+        self.text_recognizer = None
 
-    def load(self, weights_path, classes, device='cpu'):
+    def load(self, weights_path, classes, ocr_weights=None, device='cpu'):
         with torch.no_grad():
             self.device = select_device(device)
             self.model = attempt_load(weights_path, device=self.device)
@@ -34,6 +34,13 @@ class YOLOv7:
             stride = int(self.model.stride.max())
             self.imgsz = check_img_size(self.settings['img_size'], s=stride)
             self.classes = yaml.load(open(classes), Loader=yaml.SafeLoader)['classes']
+        
+        if len(self.settings['ocr_classes']) > 0 and ocr_weights is not None:
+            from easy_paddle_ocr import TextRecognizer
+            self.text_recognizer = TextRecognizer(weights=ocr_weights, device=device)
+        else:
+            from utils import ocr
+            self.text_recognizer = ocr
 
     def unload(self):
         if self.device.type != 'cpu':
@@ -78,13 +85,13 @@ class YOLOv7:
             
             detections = Detections(raw_detection, self.classes, tracking=track).to_dict()
 
-            if len(self.settings['ocr_classes']) > 0:
+            if len(self.settings['ocr_classes']) > 0 and self.text_recognizer is not None:
                 for detection in detections:
                     if detection['class'] in self.settings['ocr_classes']:
                         cropped_box = crop(im0, detection)
                         text = ''
                         try:
-                            text = ocr.read(cropped_box)
+                            text = self.text_recognizer.read(cropped_box)['text']
                         except:
                             pass
                         detection['text'] = text

@@ -18,4 +18,4 @@ def read(image):
             text += '; '
         text += f'{line[1][0]}'
   
-  return text
+  return {'text': text}
