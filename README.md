@@ -7,9 +7,15 @@ This a clean and easy-to-use implementation of [YOLOv7](https://github.com/WongK
 Don't forget to read our [Blog](https://blog.theos.ai) and subscribe to our [YouTube Channel](https://www.youtube.com/@theos-ai/)!
 
 ### Install all the dependencies
-
+Always install the requirements inside a [virtual environment](https://docs.python.org/3/library/venv.html):
 ```
 pip install -r requirements.txt
+```
+#### Fix dependencies
+If you run into issues installing some dependencies, first make sure you installed them inside a virtual environment.
+For cython-bbox, try installing it like this:
+```
+pip install -e git+https://github.com/samson-wang/cython_bbox.git#egg=cython-bbox
 ```
 
 ### Detect the image
